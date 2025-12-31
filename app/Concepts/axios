@@ -1,0 +1,37 @@
+With Axios it's simpler:
+javascriptimport axios from 'axios'
+
+export default async function page() {
+  // Axios automatically parses JSON - one line!
+  const { data } = await axios.get("https://dummyjson.com/products")
+  
+  // 'data' is already the parsed result, ready to use!
+  return (
+    <div>
+      {data.products.map(product => (
+        <div key={product.id}>{product.title}</div>
+      ))}
+    </div>
+  )
+}
+Comparison:
+Fetch (2 steps):
+javascriptconst response = await fetch(url)  // Step 1: Get response
+const data = await response.json() // Step 2: Parse JSON
+Axios (1 step):
+javascriptconst { data } = await axios.get(url) // Done! Already parsed
+Even Cleaner with Axios Instance:
+javascript// lib/axios.js
+import axios from 'axios'
+
+export const api = axios.create({
+  baseURL: "https://dummyjson.com"
+})
+javascript// page.tsx
+import { api } from '@/lib/axios'
+
+export default async function page() {
+  const { data } = await api.get("/products")
+  
+  return <div>{/* use data */}</div>
+}

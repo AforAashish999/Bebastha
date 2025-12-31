@@ -1,0 +1,13 @@
+
+**After (organized way):**
+```
+components/
+  actions/
+    AddButton.tsx       // Button that opens AddUserModal
+    EditButton.tsx      // Button that opens EditUserModal
+    DeleteButton.tsx    // Button that deletes (no modal needed)
+    
+  modals/
+    AddUserModal.tsx    // Your AddUser.tsx (just renamed!)
+    EditUserModal.tsx   // Your UpdateUser.tsx (just renamed!)
+    UserDetailsModal.tsx // Your UserDetails.tsx (just renamed!)
