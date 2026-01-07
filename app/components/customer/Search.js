@@ -7,6 +7,12 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { FiSearch } from "react-icons/fi";
 import {useDebounce} from 'use-debounce';
 
+const searchItems = [
+  {value: "search"},
+  {value: "organization"},
+  {value: "project"}
+]
+
 export default  function Search() {
 const router = useRouter();
   const searchParams = useSearchParams();

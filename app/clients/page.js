@@ -10,7 +10,7 @@ export default async function page({searchParams}) {
   const params = await searchParams;
 
   return (
-    <div className='w-full flex flex-col pt-6 px-6 space-y-8'>
+    <div className='w-full flex flex-col pt-6 px -6 space-y-8'>
 
       {/* add customer */}
       <div className='flex justify-end'>

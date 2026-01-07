@@ -12,6 +12,7 @@ export async function createClientAction(prevState, formData) {
             phone_no: formData.get("phone_no"),
             organization: formData.get("organization"),
             project: formData.get("project"),
+            status: "Untouched",
             created_at: new Date().toISOString() // ← auto timestamp
         };
 
@@ -43,7 +44,8 @@ export async function updateClientAction(prevState, formData){
             address: formData.get("address"),
             phone_no: formData.get("phone_no"),
             organization: formData.get("organization"),
-            project: formData.get("project")
+            project: formData.get("project"),
+            status: formData.get("status")
         }
         await ClientService.update(id, payload);
         revalidatePath("/clients");
